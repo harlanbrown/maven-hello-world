@@ -12,8 +12,23 @@
       <!-- This property will be set by the Maven Dependency plugin -->
       <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
   </properties>
+  <repositories>
+    <repository>
+      <id>public-releases</id>
+      <url>http://maven.nuxeo.com/nexus/content/repositories/public-releases/</url>
+    </repository>
+    <repository>
+      <id>public-snapshots</id>
+      <url>http://maven.nuxeo.com/nexus/content/repositories/public-snapshots/</url>
+    </repository>
+  </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>org.nuxeo.client</groupId>
+      <artifactId>nuxeo-java-client</artifactId>
+      <version>3.0.2-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
