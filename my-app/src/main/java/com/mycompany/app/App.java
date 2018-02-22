@@ -1,4 +1,7 @@
 package com.mycompany.app;
+import org.nuxeo.client.NuxeoClient;
+import org.nuxeo.client.objects.Documents;
+import org.nuxeo.client.objects.Document;
 
 /**
  * Hello world!
@@ -25,5 +28,11 @@ public class App
          * http://checkerframework.org
          */
         System.out.println("... but thankfully, Checker has our back: http://checkerframework.org");
+        String url = "http://localhost:8080/nuxeo";
+        NuxeoClient nuxeoClient = new NuxeoClient.Builder().url(url).authentication("Administrator", "Administrator").connect();
+        Documents docs = nuxeoClient.operation("Repository.Query")
+                                    .param("query", "SELECT * FROM Document")
+                                    .execute();
+        System.out.println(docs.toString());
     }
 }
