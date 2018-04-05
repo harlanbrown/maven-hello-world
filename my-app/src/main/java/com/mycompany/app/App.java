@@ -11,9 +11,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        String url = "https://nightly.nuxeo.com/nuxeo";
+        String url = args[0];
 
-        NuxeoClient nuxeoClient = new NuxeoClient.Builder().url(url).authentication("Administrator", "Administrator").connect();
+        NuxeoClient nuxeoClient = new NuxeoClient.Builder().url(url).authentication(args[1], args[2]).connect();
 
         Document doc = nuxeoClient.operation("Repository.GetDocument").param("value", "/").execute();
         System.out.println(doc);
